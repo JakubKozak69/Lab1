@@ -1,0 +1,27 @@
+@model asp_net_mvc_lab1.Models.CreateBlogArticleModel
+
+<h1>Create New Article</h1>
+
+<form asp-action="Create" method="post" class="mt-3">
+    <div class="form-group mb-2">
+        <label asp-for="Id"></label>
+        <input asp-for="Id" class="form-control" />
+    </div>
+    <div class="form-group mb-2">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+    <div class="form-group mb-2">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <div class="form-group mb-3">
+        <label asp-for="Content"></label>
+        <textarea asp-for="Content" class="form-control" rows="5"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<div class="mt-3">
+    <a asp-controller="Blog" asp-action="Index">← Back to list</a>
+</div>

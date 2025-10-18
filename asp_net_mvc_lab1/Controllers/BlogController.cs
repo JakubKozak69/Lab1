@@ -42,5 +42,29 @@ namespace asp_net_mvc_lab1.Controllers
 
             return View(post);
         }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View(new CreateBlogArticleModel());
+        }
+
+        [HttpPost]
+        public IActionResult Create(CreateBlogArticleModel model)
+        {
+            if (string.IsNullOrWhiteSpace(model.Id))
+                return Content("Provide an Id.");
+
+            var stored = new BlogArticleViewModel
+            {
+                Id = model.Id,
+                Title = model.Title,
+                Description = model.Description,
+                Content = model.Content
+            };
+
+            _articles.Add(stored);
+            return RedirectToAction(nameof(Article), new { id = stored.Id });
+        }      
     }
 }
